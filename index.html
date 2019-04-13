@@ -1,13 +1,11 @@
-
-
 <!DOCTYPE html>
 <html>
 <head><meta name="generator" content="Hexo 3.8.0">
-    <meta charset="utf-8">
-    <title>Bray&#39;s personal BLOG</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="baidu-site-verification" content="1ZsVVOmjoT">
-    <meta name="keywords" content="Python">
+  <meta charset="utf-8">
+  
+  <title>Bray&#39;s personal BLOG</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="keywords" content="Python">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Bray&#39;s personal BLOG">
 <meta property="og:url" content="http://yoursite.com/index.html">
@@ -15,221 +13,897 @@
 <meta property="og:locale" content="default">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Bray&#39;s personal BLOG">
+  
+    <link rel="alternative" href="/atom.xml" title="Bray&#39;s personal BLOG" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/http://oayoilchh.bkt.clouddn.com/2016/07/27/18:05:26%20">
+  
+  
+      <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
     
-      <link rel="alternative" href="/atom.xml" title="Bray&#39;s personal BLOG" type="application/atom+xml">
     
-    
-      <link rel="icon" href="/css/favicon.ico">
-    
-    <link rel="stylesheet" href="/css/style.css">
-
-    
-<!-- Baidu Analytics -->
-<script type="text/javascript">
-var _hmt = _hmt || [];
-(function() {
-  var hm = document.createElement("script");
-  hm.src = "//hm.baidu.com/hm.js?fe2c7555911b8560db5e56121c5d5960";
-  var s = document.getElementsByTagName("script")[0]; 
-  s.parentNode.insertBefore(hm, s);
-})();
-</script>
-<!-- End Baidu Analytics -->
-
-
-    <script src="//cdn.bootcss.com/jquery/2.0.3/jquery.min.js"></script>
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet">
+  <script>
+      var yiliaConfig = {
+          rootUrl: '/',
+          fancybox: true,
+          animate: true,
+          isHome: true,
+          isPost: false,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
 </head></html>
 <body>
-<div id="container"> 
-
-    
-    <div id="wrap">
-	   
-
-<header id="header" class="header">
-    
-    <div id="banner"></div>
-    
-    <div id="header-outer" class="outer">
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+        <a href="/" class="profilepic">
+            
+            <img lazy-src="img/head.jpg" class="js-avatar">
+            
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">徐闯</a></h1>
+        </hgroup>
         
-        <div id="header-title" class="inner">
-          <h1 id="logo-wrap">
-            <a href="/" id="logo">Bray&#39;s personal BLOG</a>
-          </h1>
-          
+        
+            <form>
+                <input type="text" class="st-default-search-input search" id="local-search-input" placeholder="搜索一下" autocomplete="off">
+            </form>
+            <div id="local-search-result"></div>
+        
+        
+            <script type="text/javascript">
+                (function() {
+                    'use strict';
+                    function getMatchData(keyword, data) {
+                        var matchData = [];
+                        for(var i =0;i<data.length;i++){
+                            if(data[i].title.toLowerCase().indexOf(keyword)>=0) 
+                                matchData.push(data[i])
+                        }
+                        return matchData;
+                    }
+                    var $input = $('#local-search-input');
+                    var $resultContent = $('#local-search-result');
+                    $input.keyup(function(){
+                        $.ajax({
+                            url: '/search.json',
+                            dataType: "json",
+                            success: function( json ) {
+                                var str='<ul class=\"search-result-list\">';                
+                                var keyword = $input.val().trim().toLowerCase();
+                                $resultContent.innerHTML = "";
+                                if ($input.val().trim().length <= 0) {
+                                    $resultContent.empty();
+                                    $('#switch-area').show();
+                                    return;
+                                }
+                                var results = getMatchData(keyword, json);
+                                if(results.length === 0){
+                                    $resultContent.empty();
+                                    $('#switch-area').show();
+                                    return;
+                                } 
+                                for(var i =0; i<results.length; i++){
+                                    str += "<li><a href='"+ results[i].url +"' class='search-result-title'>"+ results[i].title +"</a></li>";
+                                }
+                                str += "</ul>";
+                                $resultContent.empty();
+                                $resultContent.append(str);
+                                $('#switch-area').hide();
+                            }
+                        });
+                    });
+                })();
+            </script>
+        
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="http://bestwing.me">博客首页</a></li>
+                        
+                            <li><a href="/archives">文章归档</a></li>
+                        
+                            <li><a href="/CTFStudy">学习导航</a></li>
+                        
+                            <li><a href="/PWNABLE">PWNABLE</a></li>
+                        
+                            <li><a href="/resume">个人简历</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl mail" target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=kvH99PT39-Dn_efS5PvivOPjvPH9-w" title="mail">mail</a>
+                            
+                                <a class="fl github" target="_blank" href="https://github.com/WinMin" title="github">github</a>
+                            
+                                <a class="fl zhihu" target="_blank" href="https://www.zhihu.com/people/Swings" title="zhihu">zhihu</a>
+                            
+                                <a class="fl weibo" target="_blank" href="http://weibo.com/2672317963/profile?topnav=1&wvr=6&is_all=1" title="weibo">weibo</a>
+                            
+                                <a class="fl rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/PEP8/" style="font-size: 10px;">PEP8</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a>
+                    </div>
+                </section>
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://ring3.xyz/">Yllen</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://mxny.org/">麦香浓郁</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://whereisk0shl.top/">K0sh1</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.ycjcl.cc/">信鑫</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://bystudent.com/">ByStundet表哥</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="https://www.jarviswang.me/">汪神_Jarvis</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://sh3ll.me/">Chu</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="https://www.hackfun.org/">4ido10n</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.cnblogs.com/iamstudy">L3m0n</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://o0xmuhe.me/">muhe</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://blog.nuptzj.cn/">_画船听雨</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.virzz.com/index.html">Virink</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.sqlsec.com/">国光</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.bodkin.ren/">老锥</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.cizel.cn/">C1zel</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://1phan.cc">1phan</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="https://www.liuil.top/">liuil</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.cnblogs.com/Ox9A82/">Ox9A82</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://burnegg.com/">burnegg</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="https://jwrsec.cn/">jwr-sec</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://sudalover.cn/">苏打</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://blog.binklac.com">VeroFess</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.bendawang.site/">bendawang</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://weeklyalgo.codes/">hook</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.flier.net.cn/">Flier&#39;blog</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.mutepig.club">mutepig</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="https://blog.iret.xyz/list.aspx">Silver</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://simp1e.leanote.com/">Simple</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://processor.pub/">Processor</a>
+                    
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">一只淹死在二进制海洋里的二进制狗</div>
+                </section>
+                
+            </div>
         </div>
-        
-        <div id="header-inner" class="inner">
-          <nav id="main-nav">
-            <a id="main-nav-toggle" class="nav-icon"></a>
-            
-              <a class="main-nav-link" href="/">
-                  
-                  
-
-                
-                  Home
-                </a>
-            
-              <a class="main-nav-link" href="/API">
-                  
-                  
-
-                
-                  API
-                </a>
-            
-              <a class="main-nav-link" href="/tags">
-                  
-                  
-
-                
-                  Tags
-                </a>
-            
-              <a class="main-nav-link" href="/archives">
-                  
-                  
-
-                
-                  Archives
-                </a>
-            
-              <a class="main-nav-link" href="/about">
-                  
-                  
-
-                
-                  About
-                </a>
-            
-              <a class="main-nav-link" href="https://github.com/JSLite/JSLite">
-                  
-                  
-
-                
-                  Github
-                </a>
-            
-          </nav>
-          <nav id="sub-nav">
-            
-              <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-            
-            <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-          </nav>
-          <div id="search-form-wrap">
-            <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
-          </div>
-        </div>
-    </div>
-</header>
-		<div class="outer">
-		
-    
-<div class="article_box">
-    
-    <article class="article_index">
-        <h4><i class="icon-book"></i>低廉学习成本低</h4>
-        <p>
-        
-        与jQuery有着类似的api，模仿jQuery的语法规范，并不是100%的覆盖。如果你会用jQuery，那么你也会用JSLite。
-        
-        </p>
-    </article>
-    
-    <article class="article_index">
-        <h4><i class="icon-bolt"></i>快执行并下载</h4>
-        <p>
-        
-        JSLite通用库只有5-10k，没有大量的兼容代码，在先进浏览器里面跑起来没有负担。为了减小代码量，提高性能，组件再插件化，兼容iOS3+ / android2.1+。
-        
-        </p>
-    </article>
-    
-    <article class="article_index">
-        <h4><i class="icon-lab"></i>为未来web做打算</h4>
-        <p>
-        
-        让中国再次和世界同步，拥抱现代浏览器。未来总会接触到移动端开发，还好移动端开发环境还不算恶劣。
-        
-        </p>
-    </article>
-    
-    <article class="article_index">
-        <h4><i class="icon-github-alt"></i>Github</h4>
-        <p>
-        
-            <a target="_blank" href="https://github.com/JSLite/JSLite/network"><img src="https://img.shields.io/github/forks/JSLite/JSLite.svg"></a>
-            <a target="_blank" href="https://github.com/JSLite/JSLite/stargazers"><img src="https://img.shields.io/github/stars/JSLite/JSLite.svg"></a>
-            <a target="_blank" href="https://github.com/JSLite/JSLite/issues"><img src="https://img.shields.io/github/issues/JSLite/JSLite.svg"></a>
-            <a target="_blank" href="https://github.com/JSLite/JSLite/releases"><img src="https://img.shields.io/github/release/JSLite/JSLite.svg"></a>
-        
-        </p>
-    </article>
-    
-    <div class="clear"></div>
+    </header>
 </div>
 
-
-
-
-		</div>
-		
-
-<footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-        <div class="left">
-            &copy; 2019 徐闯<br>
-            Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and Theme by <a href="https://github.com/jaywcjlove/hexoThemeKacper">hexoThemeKacper </a>
-        </div>
-        <div class="right">
-            
-        </div>
     </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="Me">徐闯</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img lazy-src="/img/head.jpg" class="js-avatar">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="Me">徐闯</a></h1>
+            </hgroup>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="http://bestwing.me">博客首页</a></li>
+                
+                    <li><a href="/archives">文章归档</a></li>
+                
+                    <li><a href="/CTFStudy">学习导航</a></li>
+                
+                    <li><a href="/PWNABLE">PWNABLE</a></li>
+                
+                    <li><a href="/resume">个人简历</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="mail" target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=kvH99PT39-Dn_efS5PvivOPjvPH9-w" title="mail">mail</a>
+                    
+                        <a class="github" target="_blank" href="https://github.com/WinMin" title="github">github</a>
+                    
+                        <a class="zhihu" target="_blank" href="https://www.zhihu.com/people/Swings" title="zhihu">zhihu</a>
+                    
+                        <a class="weibo" target="_blank" href="http://weibo.com/2672317963/profile?topnav=1&wvr=6&is_all=1" title="weibo">weibo</a>
+                    
+                        <a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+                    
+                </div>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap">
+  
+    <article id="post-day13-作业" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/11/19/day13-作业/" class="article-date">
+      <time datetime="2018-11-19T15:58:18.000Z" itemprop="datePublished">2018-11-19</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/11/19/day13-作业/">PEP8代码风格指南</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>1.声明⼀个电脑类: 属性:品牌、颜⾊、内存⼤小 方法:打游戏、写代码、看视频<br>a.创建电脑类的对象，然后通过对象点的⽅方式获取、修改、添加和删除它的属性<br>b.通过attr相关⽅方法去获取、修改、添加和删除它的属性  </p>
+<p>2.声明⼀个人的类和狗的类:<br>狗的属性:名字、颜⾊色、年年龄<br>狗的⽅方法:叫唤<br>人的属性:名字、年年龄、狗<br>人的⽅方法:遛狗<br>a.创建⼈人的对象⼩小明，让他拥有⼀一条狗⼤大⻩黄，然后让⼩小明去遛⼤大⻩黄  </p>
+<p>3.声明⼀一个圆类，自己确定有哪些属性和方法</p>
+<p>4.创建⼀一个学⽣生类:<br>属性:姓名，年龄，学号<br>方法:答到，展示学⽣生信息  </p>
+<p>创建⼀一个班级类:<br>属性:学⽣生，班级名<br>方法:添加学⽣生，删除学生，点名, 求班上学生的平均年龄</p>
+
+      
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/作业/">作业</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PEP8/">PEP8</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
   </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-pygame" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/11/19/pygame/" class="article-date">
+      <time datetime="2018-11-19T15:58:18.000Z" itemprop="datePublished">2018-11-19</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/11/19/pygame/">PEP8代码风格指南</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>###Pygame  </p>
+<p>Pygame有很多的模块，不同的模块专注于不同的功能：  </p>
+<table>
+<thead>
+<tr>
+<th>模块名</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>pygame.cdrom</td>
+<td>访问光驱</td>
+</tr>
+<tr>
+<td>pygame.cursors</td>
+<td>加载光标</td>
+</tr>
+<tr>
+<td>pygame.display</td>
+<td>访问显示设备</td>
+</tr>
+<tr>
+<td>pygame.draw</td>
+<td>绘制形状、线和点</td>
+</tr>
+<tr>
+<td>pygame.event</td>
+<td>管理事件</td>
+</tr>
+<tr>
+<td>pygame.font</td>
+<td>使用字体</td>
+</tr>
+<tr>
+<td>pygame.image</td>
+<td>加载和存储图片</td>
+</tr>
+<tr>
+<td>pygame.joystick</td>
+<td>使用游戏手柄或者 类似的东西</td>
+</tr>
+<tr>
+<td>pygame.key</td>
+<td>读取键盘按键</td>
+</tr>
+<tr>
+<td>pygame.mixer</td>
+<td>声音</td>
+</tr>
+<tr>
+<td>pygame.mouse</td>
+<td>鼠标</td>
+</tr>
+<tr>
+<td>pygame.movie</td>
+<td>播放视频</td>
+</tr>
+<tr>
+<td>pygame.music</td>
+<td>播放音频</td>
+</tr>
+<tr>
+<td>pygame.overlay</td>
+<td>访问高级视频叠加</td>
+</tr>
+<tr>
+<td>pygame.rect</td>
+<td>管理矩形区域</td>
+</tr>
+<tr>
+<td>pygame.sndarray</td>
+<td>操作声音数据</td>
+</tr>
+<tr>
+<td>pygame.sprite</td>
+<td>操作移动图像</td>
+</tr>
+<tr>
+<td>pygame.surface</td>
+<td>管理图像和屏幕</td>
+</tr>
+<tr>
+<td>pygame.surfarray</td>
+<td>管理点阵图像数据</td>
+</tr>
+<tr>
+<td>pygame.time</td>
+<td>管理时间和帧信息</td>
+</tr>
+<tr>
+<td>pygame.transform</td>
+<td>缩放和移动图像</td>
+</tr>
+</tbody>
+</table>
+<p>####disolay模块<br>下面主要介绍一下display模块的一些常用方法：     </p>
+<p>#####1.set_model 生成windows窗口</p>
+<pre><code>pygame.display.set_model(resolution, flags, depth)  
+</code></pre><p>resolution：可以控制生成的window的大小。传的值：(100,200)这样的<br>flags：控制你想要怎样的显示屏，可以赋一下几个全局常量。（这些常量在pygame.locals模块中）    </p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FULLSCREEN</td>
+<td>控制全屏,0或者1来控制</td>
+</tr>
+<tr>
+<td>HWSURFACE</td>
+<td>控制是否进行硬件加速</td>
+</tr>
+<tr>
+<td>RESIZABLE</td>
+<td>控制窗口是否可以调节大小</td>
+</tr>
+<tr>
+<td>NOFRAME</td>
+<td>创建一个没有边框的窗口</td>
+</tr>
+</tbody>
+</table>
+<p>depth：不推荐设置    </p>
+<p>#####2.get_caption()获得窗口的标题  </p>
+<pre><code>pygame.display.get_caption()  
+</code></pre><p>#####3.set_caption(title)设置窗口的标题  </p>
+<pre><code>pygame.display.set_caption(title)  
+</code></pre><p>​    </p>
+<p>####事件  </p>
+<table>
+<thead>
+<tr>
+<th>事件</th>
+<th>产生途径</th>
+<th>参数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>QUIT</td>
+<td>用户按下关闭按钮</td>
+<td>none</td>
+</tr>
+<tr>
+<td>ATIVEEVENT</td>
+<td>Pygame被激活或者隐藏</td>
+<td>gain, state</td>
+</tr>
+<tr>
+<td>KEYDOWN</td>
+<td>键盘被按下</td>
+<td>unicode, key, mod</td>
+</tr>
+<tr>
+<td>KEYUP</td>
+<td>键盘被放开</td>
+<td>key, mod</td>
+</tr>
+<tr>
+<td>MOUSEMOTION</td>
+<td>鼠标移动</td>
+<td>pos, rel, buttons</td>
+</tr>
+<tr>
+<td>MOUSEBUTTONDOWN</td>
+<td>鼠标按下</td>
+<td>pos, button</td>
+</tr>
+<tr>
+<td>MOUSEBUTTONUP</td>
+<td>鼠标放开</td>
+<td>pos, button</td>
+</tr>
+<tr>
+<td>USEREVENT</td>
+<td>触发了一个用户事件</td>
+<td>code</td>
+</tr>
+</tbody>
+</table>
+<p>​    </p>
+<p>​    </p>
+<p>​        </p>
+
+      
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/语言基础/">语言基础</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PEP8/">PEP8</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-day5作业" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/11/19/day5作业/" class="article-date">
+      <time datetime="2018-11-19T15:58:18.000Z" itemprop="datePublished">2018-11-19</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/11/19/day5作业/">作业</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h6 id="1-一张纸的厚度大约是0-08mm，对折多少次之后能达到珠穆朗玛峰的高度（8848-13米）？"><a href="#1-一张纸的厚度大约是0-08mm，对折多少次之后能达到珠穆朗玛峰的高度（8848-13米）？" class="headerlink" title="1.一张纸的厚度大约是0.08mm，对折多少次之后能达到珠穆朗玛峰的高度（8848.13米）？"></a>1.一张纸的厚度大约是0.08mm，对折多少次之后能达到珠穆朗玛峰的高度（8848.13米）？</h6><h6 id="2-古典问题：有一对兔子，从出生后第3个月起每个月都生一对兔子，小兔子长到第三个月后每个月又生一对兔子，假如兔子都不死，问每个月的兔子总数为多少？"><a href="#2-古典问题：有一对兔子，从出生后第3个月起每个月都生一对兔子，小兔子长到第三个月后每个月又生一对兔子，假如兔子都不死，问每个月的兔子总数为多少？" class="headerlink" title="2. 古典问题：有一对兔子，从出生后第3个月起每个月都生一对兔子，小兔子长到第三个月后每个月又生一对兔子，假如兔子都不死，问每个月的兔子总数为多少？"></a>2. 古典问题：有一对兔子，从出生后第3个月起每个月都生一对兔子，小兔子长到第三个月后每个月又生一对兔子，假如兔子都不死，问每个月的兔子总数为多少？</h6><p>######3. 将一个正整数分解质因数。例如:输入90,打印出90=2x3x3x5。  </p>
+<p>######4. 输入两个正整数m和n，求其最大公约数和最小公倍数。 程序分析：利用辗除法。  </p>
+<p>######5. 一个数如果恰好等于它的因子之和，这个数就称为 “完数 “。例如6=1＋2＋3.  编程 找出1000以内的所有完数  </p>
+<p>######6.输入某年某月某日，判断这一天是这一年的第几天？ 程序分析：以3月5日为例，应该先把前两个月的加起来，然后再加上5天即本年的第几天，特殊情况，闰年且输入月份大于3时需考虑多加一天。  </p>
+<p>######7. 某个公司采用公用电话传递数据，数据是四位的整数，在传递过程中是加密的，加密规则如下：每位数字都加上5,然后用和除以10的余数代替该数字，再将第一位和第四位交换，第二位和第三位交换。求输入的四位整数加密后的值   </p>
+
+      
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/作业/">作业</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PEP8/">PEP8</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-正则作业" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/11/19/正则作业/" class="article-date">
+      <time datetime="2018-11-19T15:58:18.000Z" itemprop="datePublished">2018-11-19</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/11/19/正则作业/">PEP8代码风格指南</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <ol>
+<li>写一个正则表达式判断一个字符串是否是ip地址<br>规则：一个ip地址由4个数字组成，每个数字之间用.连接。每个数字的大小是0-255<br>255.189.10.37   正确<br>256.189.89.9    错误      </li>
+<li>计算一个字符串中所有的数字的和<br>例如：字符串是：‘hello90abc 78sjh12.5’ 结果是90+78+12.5 = 180.5 </li>
+<li>验证输入的内容只能是汉字</li>
+<li>电话号码的验证 </li>
+<li>简单的身份证号的验证  </li>
+</ol>
+<p>二、不定项选择题    </p>
+<ol>
+<li><p>能够完全匹配字符串“(010)-62661617”和字符串“01062661617”的正则表达式包括（   ）  </p>
+<p>A. “(?\d{3})?-?\d{8}”<br>B. “[0-9()-]+”<br>C. “[0-9(-)]<em>\d</em>”<br>D. “[(]?\d<em>[)-]</em>\d*”</p>
+<p>2.能够完全匹配字符串“c:\rapidminer\lib\plugs”的正则表达式包括（  ）<br>A. “c:\rapidminer\lib\plugs”<br>B. “c:\rapidminer\lib\plugs”<br>C. “(?i)C:\RapidMiner\Lib\Plugs”   ?i:将后面的内容的大写变成小写<br>D. “(?s)C:\RapidMiner\Lib\Plugs”   ?s：单行匹配  </p>
+<p>3.能够完全匹配字符串“back”和“back-end”的正则表达式包括（  ）<br>A. “\w{4}-\w{3}|\w{4}”match-&gt;back,back-end    fullmatch-&gt; back,back-end<br>B. “\w{4}|\w{4}-\w{3}” match-&gt; back, back  fullmatch-&gt; back,back-end<br>C. “\S+-\S+|\S+”<br>D. “\w<em>\b-\b\w</em>|\w*”  </p>
+<p>4.能够完全匹配字符串“go go”和“kitty kitty”，但不能完全匹配“go kitty”的正则表达式包括（ ）<br>:\1就是重复前面第一个()/组合里面的内容<br>：\2就是重复前面第二个()/组合里面的内容<br>A. “\b(\w+)\b\s+\1\b”<br>B. “\w{2,5}\s*\1”<br>C. “(\S+) \s+\1”<br>D. “(\S{2,5})\s{1,}\1”  </p>
+<p>5.能够在字符串中匹配“aab”，而不能匹配“aaab”和“aaaab”的正则表达式包括（  ）<br>A. “a*?b”<br>B. “a{,2}b”<br>C. “aa??b”<br>D. “aaa??b” </p>
+</li>
+</ol>
+
+      
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/作业/">作业</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PEP8/">PEP8</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+  
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2019 徐闯
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="http://bestwing.me" target="_blank">Sw'blog</a> by Swing
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style="display:none">
+                        <span id="site-visit">海贼到访数: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style="display:none">
+                        <span id="page-visit">本页阅读量: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
 </footer>
-<script src="//cdn.bootcss.com/jquery/2.0.3/jquery.min.js"></script>
+
+    </div>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 24;
+            var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
 
 
-<script type="text/javascript">
-$(function(){
-  var $img = $('.article-entry img'),
-      $link = $img.css({
-        "display":"inline-block"
-      }).parent()
 
-  if($link.parent().is("a")){
-      $img.each(function(idx,item) {
-      $(this).parent().attr('href',$(this).parent().parent().attr('href'))
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
     })
-  }
-})
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
 </script>
 
 
-<script src="/js/script.js"></script>
+    <script type="text/javascript">
+      window.onload = function(){
+        document.getElementById("search").onclick = function(){
+            console.log("search")
+            search();
+        }
+      }
+      function search(){
+        (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+        (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+        e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+        })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
 
-  	</div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/API" class="mobile-nav-link">API</a>
-  
-    <a href="/tags" class="mobile-nav-link">Tags</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-    <a href="/about" class="mobile-nav-link">About</a>
-  
-    <a href="https://github.com/JSLite/JSLite" class="mobile-nav-link">Github</a>
-  
-</nav>
-    
-</div>
+        _st('install','A1Pz-LKMXbrzcFg2FWi6','2.0.0');
+      }
+    </script>
+
+  </div>
 </body>
 </html>
-
